@@ -1,0 +1,373 @@
+{
+  "users": [
+    {
+      "id": "u-1",
+      "name": "Anna Nowak",
+      "email": "anna.nowak@devstudio.pl",
+      "role": "admin",
+      "title": "Principal Architect",
+      "avatar": "AN",
+      "avatarColor": "bg-indigo-600",
+      "dailyCapacityHours": 6,
+      "department": "Architecture"
+    },
+    {
+      "id": "u-2",
+      "name": "Piotr Kowalski",
+      "email": "piotr.kowalski@devstudio.pl",
+      "role": "developer",
+      "title": "Senior Angular Developer",
+      "avatar": "PK",
+      "avatarColor": "bg-emerald-600",
+      "dailyCapacityHours": 8,
+      "department": "Frontend"
+    },
+    {
+      "id": "u-3",
+      "name": "Maja Wiśniewska",
+      "email": "maja.wisniewska@devstudio.pl",
+      "role": "designer",
+      "title": "Lead Product Designer",
+      "avatar": "MW",
+      "avatarColor": "bg-amber-600",
+      "dailyCapacityHours": 7,
+      "department": "Product & UX"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-arch",
+      "name": "Architektura & State",
+      "code": "ARCH",
+      "color": "indigo",
+      "description": "Projektowanie stanu aplikacji, modularność domenowa i skalowalność frontendowa"
+    },
+    {
+      "id": "cat-ui",
+      "name": "Komponenty UI & UX",
+      "code": "UI",
+      "color": "emerald",
+      "description": "Widoki interfejsu użytkownika, system komponentów, dostępność ARIA i formularze"
+    },
+    {
+      "id": "cat-bug",
+      "name": "Stabilność & Wydajność",
+      "code": "PERF",
+      "color": "rose",
+      "description": "Optymalizacja czasu renderowania widoków, responsywność UI i diagnostyka błędów"
+    },
+    {
+      "id": "cat-api",
+      "name": "Integracja API & Bezpieczeństwo",
+      "code": "API",
+      "color": "amber",
+      "description": "Komunikacja z usługami REST, uwierzytelnianie kontekstu i walidacja danych"
+    },
+    {
+      "id": "cat-docs",
+      "name": "Testy & Dokumentacja",
+      "code": "QA",
+      "color": "sky",
+      "description": "Testy automatyczne, scenariusze regresyjne, dokumentacja techniczna i ADR"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t-101",
+      "title": "Integracja wyszukiwarki pełnotekstowej z katalogiem zadań",
+      "description": "Użytkownicy zgłaszają, że podczas szybkiego wpisywania frazy w pasku wyszukiwania wyniki potrafią mrugać i nadpisywać się nieaktualnymi danymi z wcześniejszych zapytań.",
+      "categoryId": "cat-bug",
+      "assigneeId": "u-2",
+      "reporterId": "u-1",
+      "status": "in_progress",
+      "priority": "critical",
+      "tags": ["search", "api", "performance"],
+      "estimateHours": 4,
+      "loggedHours": 2.5,
+      "dueDate": "2026-11-09",
+      "createdAt": "2026-11-04T09:15:00.000Z",
+      "updatedAt": "2026-11-09T08:30:00.000Z",
+      "subtasks": [
+        { "id": "st-1", "title": "Ograniczyć liczbę zapytań wysyłanych podczas pisania", "completed": true },
+        { "id": "st-2", "title": "Zapewnić odporność wyszukiwarki na chwilowe błędy serwera", "completed": true },
+        { "id": "st-3", "title": "Zweryfikować kolejność odpowiedzi w zakładce Network", "completed": false }
+      ]
+    },
+    {
+      "id": "t-102",
+      "title": "Rozbudowa panelu analitycznego KPI dla menedżerów",
+      "description": "Dodanie podsumowania postępu realizacji budżetu godzinowego oraz wskaźników obciążenia członków zespołu w bieżącym sprincie.",
+      "categoryId": "cat-arch",
+      "assigneeId": "u-1",
+      "reporterId": "u-1",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["analytics", "kpi", "dashboard"],
+      "estimateHours": 5,
+      "loggedHours": 1,
+      "dueDate": "2026-11-09",
+      "createdAt": "2026-11-05T11:00:00.000Z",
+      "updatedAt": "2026-11-08T14:20:00.000Z",
+      "subtasks": [
+        { "id": "st-4", "title": "Przygotować agregację godzin estymowanych i zaraportowanych", "completed": true },
+        { "id": "st-5", "title": "Dodać filtrowanie otwartych kategorii projektowych", "completed": false },
+        { "id": "st-6", "title": "Dodać prognozę ryzyka przeciążenia dla wybranego specjalisty", "completed": false }
+      ]
+    },
+    {
+      "id": "t-103",
+      "title": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "description": "Rejestr operacji powinien automatycznie pobierać najnowsze wpisy z serwera, bez nadmiernego obciążania przeglądarki po przełączeniu zakładek.",
+      "categoryId": "cat-bug",
+      "assigneeId": "u-2",
+      "reporterId": "u-1",
+      "status": "todo",
+      "priority": "critical",
+      "tags": ["audit-log", "polling", "stability"],
+      "estimateHours": 3,
+      "loggedHours": 0.5,
+      "dueDate": "2026-11-06",
+      "createdAt": "2026-11-01T10:00:00.000Z",
+      "updatedAt": "2026-11-06T16:45:00.000Z",
+      "subtasks": [
+        { "id": "st-7", "title": "Sprawdzić zachowanie licznika zapytań przy zmianie widoku", "completed": false },
+        { "id": "st-8", "title": "Uporządkować cykl życia cyklicznego odświeżania logów", "completed": false }
+      ]
+    },
+    {
+      "id": "t-104",
+      "title": "Weryfikacja unikalności tytułów zadań w formularzu edycji",
+      "description": "Formularz tworzenia nowego zadania powinien sprawdzać w bazie danych, czy zadanie o identycznym tytule już istnieje, zanim użytkownik kliknie Zapisz.",
+      "categoryId": "cat-ui",
+      "assigneeId": "u-2",
+      "reporterId": "u-3",
+      "status": "done",
+      "priority": "medium",
+      "tags": ["forms", "validation", "ux"],
+      "estimateHours": 3,
+      "loggedHours": 3,
+      "dueDate": "2026-11-07",
+      "createdAt": "2026-11-02T08:00:00.000Z",
+      "updatedAt": "2026-11-07T15:10:00.000Z",
+      "subtasks": [
+        { "id": "st-9", "title": "Dodać zdalną weryfikację duplikatu tytułu po wpisaniu", "completed": true },
+        { "id": "st-10", "title": "Dodać wizualny wskaźnik sprawdzania dostępności tytułu w polu input", "completed": true }
+      ]
+    },
+    {
+      "id": "t-105",
+      "title": "Projekt makiet widoku Kalendarza i obciążenia dziennego zespołu",
+      "description": "Przygotowanie spójnego systemu wizualizacji przekroczenia dziennego limitu godzin roboczych w widoku osi czasu dla aktualnie wybranego profilu.",
+      "categoryId": "cat-ui",
+      "assigneeId": "u-3",
+      "reporterId": "u-1",
+      "status": "in_progress",
+      "priority": "medium",
+      "tags": ["tailwind", "calendar", "design-system"],
+      "estimateHours": 6,
+      "loggedHours": 4,
+      "dueDate": "2026-11-10",
+      "createdAt": "2026-11-05T12:30:00.000Z",
+      "updatedAt": "2026-11-08T17:00:00.000Z",
+      "subtasks": [
+        { "id": "st-11", "title": "Dobrać paletę ostrzegawczą dla przeciążenia > 100% limitu", "completed": true },
+        { "id": "st-12", "title": "Zaprojektować kompaktowe karty zadań dla kolumn dni", "completed": true },
+        { "id": "st-13", "title": "Przetestować przeplanowywanie zadań przeterminowanych jednym kliknięciem", "completed": false }
+      ]
+    },
+    {
+      "id": "t-106",
+      "title": "Przekazywanie kontekstu użytkownika w nagłówkach zapytań API",
+      "description": "Każde żądanie wychodzące do serwera musi zawierać identyfikator aktualnie wybranego użytkownika w nagłówku X-User-Id oraz obsługiwać globalny pasek ładowania.",
+      "categoryId": "cat-api",
+      "assigneeId": "u-1",
+      "reporterId": "u-1",
+      "status": "done",
+      "priority": "high",
+      "tags": ["http", "headers", "architecture"],
+      "estimateHours": 2.5,
+      "loggedHours": 2,
+      "dueDate": "2026-11-05",
+      "createdAt": "2026-11-01T14:00:00.000Z",
+      "updatedAt": "2026-11-05T11:20:00.000Z",
+      "subtasks": [
+        { "id": "st-14", "title": "Dołączać nagłówek X-User-Id do zapytań wychodzących", "completed": true },
+        { "id": "st-15", "title": "Zintegrować wskaźnik postępu z licznikiem aktywnych żądań", "completed": true },
+        { "id": "st-16", "title": "Skonfigurować obsługę komunikatów błędów 500", "completed": true }
+      ]
+    },
+    {
+      "id": "t-107",
+      "title": "Ochrona niezapisanego formularza edycji zadania przed zamknięciem",
+      "description": "Zapobiec przypadkowej utracie wpisanych danych i dodanych podzadań, gdy użytkownik kliknie link w menu nawigacyjnym przed zapisaniem zmian.",
+      "categoryId": "cat-arch",
+      "assigneeId": "u-2",
+      "reporterId": "u-3",
+      "status": "review",
+      "priority": "medium",
+      "tags": ["routing", "navigation", "forms"],
+      "estimateHours": 2,
+      "loggedHours": 2,
+      "dueDate": "2026-11-10",
+      "createdAt": "2026-11-06T09:00:00.000Z",
+      "updatedAt": "2026-11-08T19:00:00.000Z",
+      "subtasks": [
+        { "id": "st-17", "title": "Wykrywać niezapisane modyfikacje w formularzu", "completed": true },
+        { "id": "st-18", "title": "Wyświetlać okno potwierdzenia przy próbie opuszczenia edytora", "completed": true }
+      ]
+    },
+    {
+      "id": "t-108",
+      "title": "Szybkie przeplanowywanie zadań z radaru zaległości",
+      "description": "Przyciski szybkiej zmiany terminu ('Na dziś', 'Jutro') w widoku Kalendarza powinny natychmiast przenosić zadanie do właściwej kolumny dnia i aktualizować licznik zaległości.",
+      "categoryId": "cat-bug",
+      "assigneeId": null,
+      "reporterId": "u-1",
+      "status": "todo",
+      "priority": "high",
+      "tags": ["calendar", "deadlines", "ui-sync"],
+      "estimateHours": 2,
+      "loggedHours": 0,
+      "dueDate": "2026-11-07",
+      "createdAt": "2026-11-03T15:30:00.000Z",
+      "updatedAt": "2026-11-07T10:00:00.000Z",
+      "subtasks": [
+        { "id": "st-19", "title": "Zweryfikować odświeżanie kolumn kalendarza po zmianie daty", "completed": false }
+      ]
+    },
+    {
+      "id": "t-109",
+      "title": "Obsługa operacji masowych (Bulk Actions) na liście zadań",
+      "description": "Umożliwić zaznaczenie wielu zadań na liście i jednoczesną zmianę ich statusu za pomocą pływającego paska akcji.",
+      "categoryId": "cat-api",
+      "assigneeId": "u-1",
+      "reporterId": "u-2",
+      "status": "in_progress",
+      "priority": "medium",
+      "tags": ["batch", "status", "bulk-actions"],
+      "estimateHours": 4,
+      "loggedHours": 1.5,
+      "dueDate": "2026-11-11",
+      "createdAt": "2026-11-06T13:00:00.000Z",
+      "updatedAt": "2026-11-08T16:00:00.000Z",
+      "subtasks": [
+        { "id": "st-20", "title": "Dodać obsługę zaznaczania wielu kart zadań", "completed": true },
+        { "id": "st-21", "title": "Stworzyć pływający pasek BulkActionsBarComponent", "completed": true },
+        { "id": "st-22", "title": "Dodać wpis zbiorczy do dziennika ActivityLog po zakończeniu serii", "completed": false }
+      ]
+    },
+    {
+      "id": "t-110",
+      "title": "Przygotowanie zestawu testów jednostkowych dla reguł walidacji",
+      "description": "Pokrycie testami jednostkowymi logiki filtrowania wielokryterialnego, obliczania statystyk produktywności oraz walidatora spójności czasu pracy.",
+      "categoryId": "cat-docs",
+      "assigneeId": null,
+      "reporterId": "u-1",
+      "status": "todo",
+      "priority": "low",
+      "tags": ["testing", "jasmine", "qa"],
+      "estimateHours": 5,
+      "loggedHours": 0,
+      "dueDate": "2026-11-14",
+      "createdAt": "2026-11-07T10:00:00.000Z",
+      "updatedAt": "2026-11-07T10:00:00.000Z",
+      "subtasks": [
+        { "id": "st-23", "title": "Przetestować filtrowanie dla kombinacji kryteriów", "completed": false },
+        { "id": "st-24", "title": "Przetestować zachowanie przy błędzie serwera", "completed": false }
+      ]
+    },
+    {
+      "id": "t-111",
+      "title": "Refaktoryzacja dostępności klawiaturowej (ARIA) w kartach zadań",
+      "description": "Upewnić się, że przełączniki statusów i podzadań posiadają czytelne etykiety aria-label oraz obsługują nawigację klawiaturą.",
+      "categoryId": "cat-ui",
+      "assigneeId": "u-3",
+      "reporterId": "u-3",
+      "status": "todo",
+      "priority": "low",
+      "tags": ["a11y", "aria", "wcag"],
+      "estimateHours": 2,
+      "loggedHours": 0,
+      "dueDate": null,
+      "createdAt": "2026-11-07T14:20:00.000Z",
+      "updatedAt": "2026-11-07T14:20:00.000Z",
+      "subtasks": []
+    },
+    {
+      "id": "t-112",
+      "title": "Optymalizacja płynności odhaczania listy kontrolnej podzadań",
+      "description": "Podczas szybkiego zaznaczania kilku podzadań pod rząd na karcie zadania część zmian nie zapisuje się na serwerze, a pasek postępu przelicza się wielokrotnie.",
+      "categoryId": "cat-bug",
+      "assigneeId": "u-2",
+      "reporterId": "u-1",
+      "status": "in_progress",
+      "priority": "high",
+      "tags": ["checklist", "subtasks", "performance"],
+      "estimateHours": 1.5,
+      "loggedHours": 1.0,
+      "dueDate": "2026-11-08",
+      "createdAt": "2026-11-04T16:00:00.000Z",
+      "updatedAt": "2026-11-08T11:00:00.000Z",
+      "subtasks": [
+        { "id": "st-25", "title": "Zweryfikować zapisywanie szybkich zmian na liście podzadań", "completed": true },
+        { "id": "st-26", "title": "Zoptymalizować przeliczanie paska postępu na karcie zadania", "completed": false }
+      ]
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "log-1",
+      "taskId": "t-101",
+      "taskTitle": "Integracja wyszukiwarki pełnotekstowej z katalogiem zadań",
+      "userId": "u-2",
+      "action": "STATUS_CHANGED",
+      "details": "Zmieniono status zadania z 'Do zrobienia' na 'W trakcie'",
+      "timestamp": "2026-11-09T08:30:00.000Z"
+    },
+    {
+      "id": "log-2",
+      "taskId": "t-107",
+      "taskTitle": "Ochrona niezapisanego formularza edycji zadania przed zamknięciem",
+      "userId": "u-2",
+      "action": "STATUS_CHANGED",
+      "details": "Przekazano zadanie do Code Review",
+      "timestamp": "2026-11-08T19:00:00.000Z"
+    },
+    {
+      "id": "log-3",
+      "taskId": "t-105",
+      "taskTitle": "Projekt makiet widoku Kalendarza i obciążenia dziennego zespołu",
+      "userId": "u-3",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Zaprojektować kompaktowe karty zadań dla kolumn dni",
+      "timestamp": "2026-11-08T17:00:00.000Z"
+    },
+    {
+      "id": "log-4",
+      "taskId": "t-109",
+      "taskTitle": "Obsługa operacji masowych (Bulk Actions) na liście zadań",
+      "userId": "u-1",
+      "action": "UPDATED",
+      "details": "Zaktualizowano estymację oraz listę kontrolną dla operacji zbiorczych",
+      "timestamp": "2026-11-08T16:00:00.000Z"
+    },
+    {
+      "id": "log-5",
+      "taskId": "t-112",
+      "taskTitle": "Optymalizacja płynności odhaczania listy kontrolnej podzadań",
+      "userId": "u-2",
+      "action": "STATUS_CHANGED",
+      "details": "Rozpoczęto diagnostykę zapisu podzadań na karcie zadania",
+      "timestamp": "2026-11-08T11:00:00.000Z"
+    },
+    {
+      "id": "log-6",
+      "taskId": "t-104",
+      "taskTitle": "Weryfikacja unikalności tytułów zadań w formularzu edycji",
+      "userId": "u-2",
+      "action": "CREATED",
+      "details": "Dodano zdalną weryfikację duplikatów tytułów przed zapisem formularza",
+      "timestamp": "2026-11-07T15:10:00.000Z"
+    }
+  ]
+}
