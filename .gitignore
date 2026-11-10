@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+# Interviewer private materials (never expose to candidates)
+/.interviewer/
+/.agents/
+/AGENTS.md
+/skills-lock.json

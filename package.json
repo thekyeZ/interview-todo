@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently -n \"ANGULAR,JSON-API\" -c \"cyan,yellow\" \"ng serve\" \"npm run api\"",
-    "start:ui": "ng serve",
-    "api": "json-server --watch db.json --port 3000 --delay 400 --middlewares ./server/middleware.cjs",
+    "start": "concurrently -n \"ANGULAR,JSON-API\" -c \"cyan,yellow\" \"ng serve --port 4200\" \"npm run api\"",
+    "start:ui": "ng serve --port 4200",
+    "api": "node ./server/start-api.cjs",
     "db:reset": "node ./server/reset-db.cjs",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

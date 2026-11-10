@@ -1,26 +1,25 @@
-# Interview Todo (TaskFlow) — Angular Recruitment Platform
+# TaskFlow — System Zarządzania Zadaniami i Produktywnością Zespołu
 
-Aplikacja typu **Rozbudowany Todo & Productivity Manager** zbudowana w najnowszym Angularze (`v19`), służąca do przeprowadzania technicznych rozmów rekrutacyjnych (Live Coding, Code Review, Debugging, Architecture Discussion).
+Aplikacja typu **Task & Workload Manager** zbudowana w najnowszym Angularze, wspierająca planowanie sprintów, monitorowanie obciążenia zespołu oraz prowadzenie dziennika audytowego zmian.
 
 ## Stack Technologiczny
 
-* **Frontend:** Angular 19 (Standalone Components, Signals, `computed()`, `effect()`, `input()`, `output()`, nowy Control Flow `@if` / `@for`, `ChangeDetectionStrategy.OnPush`, `withComponentInputBinding()`).
-* **Zarządzanie stanem:** `@ngrx/signals` (`SignalStore` z `withState`, `withComputed`, `withMethods`, `rxMethod`, `patchState`) + `@ngrx/operators` (`tapResponse`).
-* **Asynchroniczność i formularze:** RxJS (`switchMap`, `debounceTime`, `distinctUntilChanged`, `forkJoin`, `retry`, `catchError`, `takeUntilDestroyed`) + `ReactiveFormsModule` (`FormArray`, walidatory synchroniczne i asynchroniczne).
-* **Stylowanie:** Tailwind CSS + własne komponenty UI (`shared/ui/`).
-* **Mock Backend:** `json-server` (`v0.17.4`) z symulacją opóźnienia sieciowego (`400ms`), obsługą pełnotekstowego wyszukiwania `?q=` oraz dedykowanym middlewarem (`server/middleware.cjs`).
+* **Frontend:** Angular (Standalone Components, Signals, nowy Control Flow `@if` / `@for`, `ChangeDetectionStrategy.OnPush`, `ReactiveFormsModule`).
+* **Zarządzanie stanem:** `@ngrx/signals` (`SignalStore`) + RxJS.
+* **Stylowanie:** Tailwind CSS + dedykowane komponenty UI (`src/app/shared/ui/`).
+* **Backend (Mock API):** `json-server` (`v0.17.4`) z symulacją opóźnienia sieciowego (`400ms`), obsługą wyszukiwania pełnotekstowego `?q=` oraz proxy `/api` skonfigurowanym w `proxy.conf.json` (kompatybilne ze StackBlitz WebContainers oraz środowiskiem lokalnym).
 
-## Szybki Start
+## Szybki Start (Lokalnie oraz StackBlitz)
 
-### 1. Uruchomienie aplikacji oraz Mock API jednocześnie
+### 1. Uruchomienie aplikacji oraz serwera API jednocześnie
 ```bash
 npm start
 ```
-* Aplikacja Angular uruchomi się pod adresem: `http://localhost:4200`
-* Serwer `json-server` uruchomi się pod adresem: `http://localhost:3000` (z opóźnieniem `400ms`)
+* Aplikacja Angular uruchamia się pod adresem `http://localhost:4200`
+* Serwer `json-server` działa na porcie `3000`, a wszystkie zapytania z aplikacji kierowane są przez ścieżkę `/api/*` (przekierowywaną przez Angular DevServer Proxy).
 
-### 2. Reset bazy danych po rozmowie z kandydatem
-Aby przywrócić plik `db.json` do czystego stanu początkowego z pliku `db.seed.json`:
+### 2. Przywrócenie początkowego stanu bazy danych
+Aby przywrócić plik `db.json` do stanu początkowego z pliku `db.seed.json`:
 ```bash
 npm run db:reset
 ```
@@ -32,7 +31,7 @@ npm run build
 
 ## Główne Moduły Biznesowe
 
-1. **Tablica Zadań (`/tasks`)** – wielokryterialne filtrowanie, wyszukiwarka live (`rxMethod`), odhaczanie podzadań na karcie, operacje masowe (`forkJoin`) oraz edytor zadań (`/tasks/new`, `/tasks/:id/edit`) z `FormArray`, walidatorem asynchronicznym i ochroną `canDeactivate`.
-2. **Kalendarz i Terminy (`/calendar`)** – oś czasu zadań, radar zaległości oraz kontrola dziennego obciążenia godzinowego względem limitu użytkownika (`dailyCapacityHours`).
+1. **Tablica Zadań (`/tasks`)** – wielokryterialne filtrowanie, wyszukiwarka zadań, lista kontrolna podzadań na karcie, operacje masowe oraz formularz tworzenia/edycji zadań (`/tasks/new`, `/tasks/:id/edit`).
+2. **Kalendarz i Terminy (`/calendar`)** – oś czasu zadań, radar zaległości oraz kontrola dziennego obciążenia godzinowego względem limitu wybranego użytkownika.
 3. **Statystyki Produktywności (`/analytics`)** – karty KPI, bilans godzin estymowanych vs zaraportowanych, rozkład kategorii oraz mapa obciążenia członków zespołu.
-4. **Historia Zmian (`/activity-log`)** – dziennik audytowy wszystkich operacji z filtrowaniem oraz opcjonalnym auto-odświeżaniem (`interval` + `takeUntilDestroyed`).
+4. **Historia Zmian (`/activity-log`)** – dziennik audytowy wszystkich operacji z filtrowaniem oraz automatycznym odświeżaniem wpisów.

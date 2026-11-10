@@ -81,16 +81,32 @@
       "reporterId": "u-1",
       "status": "in_progress",
       "priority": "critical",
-      "tags": ["search", "api", "performance"],
+      "tags": [
+        "search",
+        "api",
+        "performance"
+      ],
       "estimateHours": 4,
       "loggedHours": 2.5,
       "dueDate": "2026-11-09",
       "createdAt": "2026-11-04T09:15:00.000Z",
       "updatedAt": "2026-11-09T08:30:00.000Z",
       "subtasks": [
-        { "id": "st-1", "title": "Ograniczyć liczbę zapytań wysyłanych podczas pisania", "completed": true },
-        { "id": "st-2", "title": "Zapewnić odporność wyszukiwarki na chwilowe błędy serwera", "completed": true },
-        { "id": "st-3", "title": "Zweryfikować kolejność odpowiedzi w zakładce Network", "completed": false }
+        {
+          "id": "st-1",
+          "title": "Ograniczyć liczbę zapytań wysyłanych podczas pisania",
+          "completed": true
+        },
+        {
+          "id": "st-2",
+          "title": "Zapewnić odporność wyszukiwarki na chwilowe błędy serwera",
+          "completed": true
+        },
+        {
+          "id": "st-3",
+          "title": "Zweryfikować kolejność odpowiedzi w zakładce Network",
+          "completed": false
+        }
       ]
     },
     {
@@ -102,16 +118,32 @@
       "reporterId": "u-1",
       "status": "todo",
       "priority": "high",
-      "tags": ["analytics", "kpi", "dashboard"],
+      "tags": [
+        "analytics",
+        "kpi",
+        "dashboard"
+      ],
       "estimateHours": 5,
       "loggedHours": 1,
       "dueDate": "2026-11-09",
       "createdAt": "2026-11-05T11:00:00.000Z",
       "updatedAt": "2026-11-08T14:20:00.000Z",
       "subtasks": [
-        { "id": "st-4", "title": "Przygotować agregację godzin estymowanych i zaraportowanych", "completed": true },
-        { "id": "st-5", "title": "Dodać filtrowanie otwartych kategorii projektowych", "completed": false },
-        { "id": "st-6", "title": "Dodać prognozę ryzyka przeciążenia dla wybranego specjalisty", "completed": false }
+        {
+          "id": "st-4",
+          "title": "Przygotować agregację godzin estymowanych i zaraportowanych",
+          "completed": true
+        },
+        {
+          "id": "st-5",
+          "title": "Dodać filtrowanie otwartych kategorii projektowych",
+          "completed": false
+        },
+        {
+          "id": "st-6",
+          "title": "Dodać prognozę ryzyka przeciążenia dla wybranego specjalisty",
+          "completed": false
+        }
       ]
     },
     {
@@ -123,15 +155,27 @@
       "reporterId": "u-1",
       "status": "todo",
       "priority": "critical",
-      "tags": ["audit-log", "polling", "stability"],
+      "tags": [
+        "audit-log",
+        "polling",
+        "stability"
+      ],
       "estimateHours": 3,
       "loggedHours": 0.5,
       "dueDate": "2026-11-06",
       "createdAt": "2026-11-01T10:00:00.000Z",
-      "updatedAt": "2026-11-06T16:45:00.000Z",
+      "updatedAt": "2026-11-10T09:06:42.929Z",
       "subtasks": [
-        { "id": "st-7", "title": "Sprawdzić zachowanie licznika zapytań przy zmianie widoku", "completed": false },
-        { "id": "st-8", "title": "Uporządkować cykl życia cyklicznego odświeżania logów", "completed": false }
+        {
+          "id": "st-7",
+          "title": "Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+          "completed": false
+        },
+        {
+          "id": "st-8",
+          "title": "Uporządkować cykl życia cyklicznego odświeżania logów",
+          "completed": false
+        }
       ]
     },
     {
@@ -143,15 +187,27 @@
       "reporterId": "u-3",
       "status": "done",
       "priority": "medium",
-      "tags": ["forms", "validation", "ux"],
+      "tags": [
+        "forms",
+        "validation",
+        "ux"
+      ],
       "estimateHours": 3,
       "loggedHours": 3,
       "dueDate": "2026-11-07",
       "createdAt": "2026-11-02T08:00:00.000Z",
       "updatedAt": "2026-11-07T15:10:00.000Z",
       "subtasks": [
-        { "id": "st-9", "title": "Dodać zdalną weryfikację duplikatu tytułu po wpisaniu", "completed": true },
-        { "id": "st-10", "title": "Dodać wizualny wskaźnik sprawdzania dostępności tytułu w polu input", "completed": true }
+        {
+          "id": "st-9",
+          "title": "Dodać zdalną weryfikację duplikatu tytułu po wpisaniu",
+          "completed": true
+        },
+        {
+          "id": "st-10",
+          "title": "Dodać wizualny wskaźnik sprawdzania dostępności tytułu w polu input",
+          "completed": true
+        }
       ]
     },
     {
@@ -163,16 +219,32 @@
       "reporterId": "u-1",
       "status": "in_progress",
       "priority": "medium",
-      "tags": ["tailwind", "calendar", "design-system"],
+      "tags": [
+        "tailwind",
+        "calendar",
+        "design-system"
+      ],
       "estimateHours": 6,
       "loggedHours": 4,
       "dueDate": "2026-11-10",
       "createdAt": "2026-11-05T12:30:00.000Z",
       "updatedAt": "2026-11-08T17:00:00.000Z",
       "subtasks": [
-        { "id": "st-11", "title": "Dobrać paletę ostrzegawczą dla przeciążenia > 100% limitu", "completed": true },
-        { "id": "st-12", "title": "Zaprojektować kompaktowe karty zadań dla kolumn dni", "completed": true },
-        { "id": "st-13", "title": "Przetestować przeplanowywanie zadań przeterminowanych jednym kliknięciem", "completed": false }
+        {
+          "id": "st-11",
+          "title": "Dobrać paletę ostrzegawczą dla przeciążenia > 100% limitu",
+          "completed": true
+        },
+        {
+          "id": "st-12",
+          "title": "Zaprojektować kompaktowe karty zadań dla kolumn dni",
+          "completed": true
+        },
+        {
+          "id": "st-13",
+          "title": "Przetestować przeplanowywanie zadań przeterminowanych jednym kliknięciem",
+          "completed": false
+        }
       ]
     },
     {
@@ -184,16 +256,32 @@
       "reporterId": "u-1",
       "status": "done",
       "priority": "high",
-      "tags": ["http", "headers", "architecture"],
+      "tags": [
+        "http",
+        "headers",
+        "architecture"
+      ],
       "estimateHours": 2.5,
       "loggedHours": 2,
       "dueDate": "2026-11-05",
       "createdAt": "2026-11-01T14:00:00.000Z",
       "updatedAt": "2026-11-05T11:20:00.000Z",
       "subtasks": [
-        { "id": "st-14", "title": "Dołączać nagłówek X-User-Id do zapytań wychodzących", "completed": true },
-        { "id": "st-15", "title": "Zintegrować wskaźnik postępu z licznikiem aktywnych żądań", "completed": true },
-        { "id": "st-16", "title": "Skonfigurować obsługę komunikatów błędów 500", "completed": true }
+        {
+          "id": "st-14",
+          "title": "Dołączać nagłówek X-User-Id do zapytań wychodzących",
+          "completed": true
+        },
+        {
+          "id": "st-15",
+          "title": "Zintegrować wskaźnik postępu z licznikiem aktywnych żądań",
+          "completed": true
+        },
+        {
+          "id": "st-16",
+          "title": "Skonfigurować obsługę komunikatów błędów 500",
+          "completed": true
+        }
       ]
     },
     {
@@ -205,15 +293,27 @@
       "reporterId": "u-3",
       "status": "review",
       "priority": "medium",
-      "tags": ["routing", "navigation", "forms"],
+      "tags": [
+        "routing",
+        "navigation",
+        "forms"
+      ],
       "estimateHours": 2,
       "loggedHours": 2,
       "dueDate": "2026-11-10",
       "createdAt": "2026-11-06T09:00:00.000Z",
       "updatedAt": "2026-11-08T19:00:00.000Z",
       "subtasks": [
-        { "id": "st-17", "title": "Wykrywać niezapisane modyfikacje w formularzu", "completed": true },
-        { "id": "st-18", "title": "Wyświetlać okno potwierdzenia przy próbie opuszczenia edytora", "completed": true }
+        {
+          "id": "st-17",
+          "title": "Wykrywać niezapisane modyfikacje w formularzu",
+          "completed": true
+        },
+        {
+          "id": "st-18",
+          "title": "Wyświetlać okno potwierdzenia przy próbie opuszczenia edytora",
+          "completed": true
+        }
       ]
     },
     {
@@ -225,14 +325,22 @@
       "reporterId": "u-1",
       "status": "todo",
       "priority": "high",
-      "tags": ["calendar", "deadlines", "ui-sync"],
+      "tags": [
+        "calendar",
+        "deadlines",
+        "ui-sync"
+      ],
       "estimateHours": 2,
       "loggedHours": 0,
       "dueDate": "2026-11-07",
       "createdAt": "2026-11-03T15:30:00.000Z",
-      "updatedAt": "2026-11-07T10:00:00.000Z",
+      "updatedAt": "2026-11-10T09:07:31.362Z",
       "subtasks": [
-        { "id": "st-19", "title": "Zweryfikować odświeżanie kolumn kalendarza po zmianie daty", "completed": false }
+        {
+          "id": "st-19",
+          "title": "Zweryfikować odświeżanie kolumn kalendarza po zmianie daty",
+          "completed": false
+        }
       ]
     },
     {
@@ -244,16 +352,32 @@
       "reporterId": "u-2",
       "status": "in_progress",
       "priority": "medium",
-      "tags": ["batch", "status", "bulk-actions"],
+      "tags": [
+        "batch",
+        "status",
+        "bulk-actions"
+      ],
       "estimateHours": 4,
       "loggedHours": 1.5,
       "dueDate": "2026-11-11",
       "createdAt": "2026-11-06T13:00:00.000Z",
       "updatedAt": "2026-11-08T16:00:00.000Z",
       "subtasks": [
-        { "id": "st-20", "title": "Dodać obsługę zaznaczania wielu kart zadań", "completed": true },
-        { "id": "st-21", "title": "Stworzyć pływający pasek BulkActionsBarComponent", "completed": true },
-        { "id": "st-22", "title": "Dodać wpis zbiorczy do dziennika ActivityLog po zakończeniu serii", "completed": false }
+        {
+          "id": "st-20",
+          "title": "Dodać obsługę zaznaczania wielu kart zadań",
+          "completed": true
+        },
+        {
+          "id": "st-21",
+          "title": "Stworzyć pływający pasek BulkActionsBarComponent",
+          "completed": true
+        },
+        {
+          "id": "st-22",
+          "title": "Dodać wpis zbiorczy do dziennika ActivityLog po zakończeniu serii",
+          "completed": false
+        }
       ]
     },
     {
@@ -265,15 +389,27 @@
       "reporterId": "u-1",
       "status": "todo",
       "priority": "low",
-      "tags": ["testing", "jasmine", "qa"],
+      "tags": [
+        "testing",
+        "jasmine",
+        "qa"
+      ],
       "estimateHours": 5,
       "loggedHours": 0,
       "dueDate": "2026-11-14",
       "createdAt": "2026-11-07T10:00:00.000Z",
       "updatedAt": "2026-11-07T10:00:00.000Z",
       "subtasks": [
-        { "id": "st-23", "title": "Przetestować filtrowanie dla kombinacji kryteriów", "completed": false },
-        { "id": "st-24", "title": "Przetestować zachowanie przy błędzie serwera", "completed": false }
+        {
+          "id": "st-23",
+          "title": "Przetestować filtrowanie dla kombinacji kryteriów",
+          "completed": false
+        },
+        {
+          "id": "st-24",
+          "title": "Przetestować zachowanie przy błędzie serwera",
+          "completed": false
+        }
       ]
     },
     {
@@ -285,7 +421,11 @@
       "reporterId": "u-3",
       "status": "todo",
       "priority": "low",
-      "tags": ["a11y", "aria", "wcag"],
+      "tags": [
+        "a11y",
+        "aria",
+        "wcag"
+      ],
       "estimateHours": 2,
       "loggedHours": 0,
       "dueDate": null,
@@ -302,15 +442,27 @@
       "reporterId": "u-1",
       "status": "in_progress",
       "priority": "high",
-      "tags": ["checklist", "subtasks", "performance"],
+      "tags": [
+        "checklist",
+        "subtasks",
+        "performance"
+      ],
       "estimateHours": 1.5,
-      "loggedHours": 1.0,
+      "loggedHours": 1,
       "dueDate": "2026-11-08",
       "createdAt": "2026-11-04T16:00:00.000Z",
       "updatedAt": "2026-11-08T11:00:00.000Z",
       "subtasks": [
-        { "id": "st-25", "title": "Zweryfikować zapisywanie szybkich zmian na liście podzadań", "completed": true },
-        { "id": "st-26", "title": "Zoptymalizować przeliczanie paska postępu na karcie zadania", "completed": false }
+        {
+          "id": "st-25",
+          "title": "Zweryfikować zapisywanie szybkich zmian na liście podzadań",
+          "completed": true
+        },
+        {
+          "id": "st-26",
+          "title": "Zoptymalizować przeliczanie paska postępu na karcie zadania",
+          "completed": false
+        }
       ]
     }
   ],
@@ -368,6 +520,114 @@
       "action": "CREATED",
       "details": "Dodano zdalną weryfikację duplikatów tytułów przed zapisem formularza",
       "timestamp": "2026-11-07T15:10:00.000Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+      "userId": "u-2",
+      "id": "log-1794301584798-83cq",
+      "timestamp": "2026-11-10T09:06:24.798Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Uporządkować cykl życia cyklicznego odświeżania logów",
+      "userId": "u-2",
+      "id": "log-1794301585349-glwp",
+      "timestamp": "2026-11-10T09:06:25.349Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Cofnięto podzadanie: Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+      "userId": "u-2",
+      "id": "log-1794301586178-46il",
+      "timestamp": "2026-11-10T09:06:26.178Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+      "userId": "u-2",
+      "id": "log-1794301587795-cjw1",
+      "timestamp": "2026-11-10T09:06:27.795Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Cofnięto podzadanie: Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+      "userId": "u-2",
+      "id": "log-1794301590242-ox7y",
+      "timestamp": "2026-11-10T09:06:30.242Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Cofnięto podzadanie: Uporządkować cykl życia cyklicznego odświeżania logów",
+      "userId": "u-2",
+      "id": "log-1794301592149-e4xw",
+      "timestamp": "2026-11-10T09:06:32.149Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Uporządkować cykl życia cyklicznego odświeżania logów",
+      "userId": "u-2",
+      "id": "log-1794301596403-uwp3",
+      "timestamp": "2026-11-10T09:06:36.403Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Cofnięto podzadanie: Uporządkować cykl życia cyklicznego odświeżania logów",
+      "userId": "u-2",
+      "id": "log-1794301601155-0ci2",
+      "timestamp": "2026-11-10T09:06:41.155Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+      "userId": "u-2",
+      "id": "log-1794301601585-o7sb",
+      "timestamp": "2026-11-10T09:06:41.585Z"
+    },
+    {
+      "taskId": "t-103",
+      "taskTitle": "Synchronizacja dziennika audytowego (Activity Log) w czasie rzeczywistym",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Cofnięto podzadanie: Sprawdzić zachowanie licznika zapytań przy zmianie widoku",
+      "userId": "u-2",
+      "id": "log-1794301603368-pmri",
+      "timestamp": "2026-11-10T09:06:43.368Z"
+    },
+    {
+      "taskId": "t-108",
+      "taskTitle": "Szybkie przeplanowywanie zadań z radaru zaległości",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Ukończono podzadanie: Zweryfikować odświeżanie kolumn kalendarza po zmianie daty",
+      "userId": "u-2",
+      "id": "log-1794301649038-w4qp",
+      "timestamp": "2026-11-10T09:07:29.038Z"
+    },
+    {
+      "taskId": "t-108",
+      "taskTitle": "Szybkie przeplanowywanie zadań z radaru zaległości",
+      "action": "SUBTASK_TOGGLED",
+      "details": "Cofnięto podzadanie: Zweryfikować odświeżanie kolumn kalendarza po zmianie daty",
+      "userId": "u-2",
+      "id": "log-1794301651799-jxiy",
+      "timestamp": "2026-11-10T09:07:31.799Z"
     }
   ]
 }

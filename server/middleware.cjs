@@ -1,6 +1,6 @@
 /**
  * Custom middleware for json-server (v0.17.4).
- * Provides header inspection and optional error simulation for recruitment scenarios.
+ * Provides header inspection and optional error simulation.
  */
 module.exports = (req, res, next) => {
   res.header('Access-Control-Expose-Headers', 'X-Total-Count, X-Active-User');
@@ -8,8 +8,6 @@ module.exports = (req, res, next) => {
   const activeUserId = req.headers['x-user-id'] || 'anonymous';
   res.header('X-Active-User', activeUserId);
 
-  // Allow simulating server errors when query param ?simulateError=true is passed
-  // or when task title contains [SIMULATE_ERROR]
   if (
     req.query.simulateError === 'true' ||
     (req.body && typeof req.body.title === 'string' && req.body.title.includes('[SIMULATE_ERROR]'))
