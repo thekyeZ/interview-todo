@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "id": "u-1",
+      "email": "alex@work.com",
+      "password": "password123",
+      "name": "Alex Morgan",
+      "isDemo": false
+    },
+    {
+      "id": "u-2",
+      "email": "demo@tasks.minimal",
+      "password": "calm-workflow-2025",
+      "name": "Demo User",
+      "isDemo": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t-1",
+      "userId": "u-1",
+      "title": "Finalize Q3 product architecture notes",
+      "completed": false,
+      "order": 0,
+      "createdAt": "2026-11-20T09:00:00.000Z"
+    },
+    {
+      "id": "t-2",
+      "userId": "u-1",
+      "title": "Call electrician for studio lighting",
+      "completed": false,
+      "order": 1,
+      "createdAt": "2026-11-20T10:15:00.000Z"
+    },
+    {
+      "id": "t-3",
+      "userId": "u-1",
+      "title": "Review quarterly tax assessment",
+      "completed": false,
+      "order": 2,
+      "createdAt": "2026-11-20T11:30:00.000Z"
+    },
+    {
+      "id": "t-4",
+      "userId": "u-1",
+      "title": "Send contract to design partner",
+      "completed": true,
+      "order": 3,
+      "createdAt": "2026-11-19T14:20:00.000Z"
+    },
+    {
+      "id": "t-5",
+      "userId": "u-1",
+      "title": "Order new monitor desk mount",
+      "completed": true,
+      "order": 4,
+      "createdAt": "2026-11-19T16:45:00.000Z"
+    },
+    {
+      "id": "t-101",
+      "userId": "u-2",
+      "title": "Finalize Q3 product architecture notes",
+      "completed": false,
+      "order": 0,
+      "createdAt": "2026-11-20T09:00:00.000Z"
+    },
+    {
+      "id": "t-102",
+      "userId": "u-2",
+      "title": "Call electrician for studio lighting",
+      "completed": false,
+      "order": 1,
+      "createdAt": "2026-11-20T10:15:00.000Z"
+    },
+    {
+      "id": "t-103",
+      "userId": "u-2",
+      "title": "Review quarterly tax assessment",
+      "completed": false,
+      "order": 2,
+      "createdAt": "2026-11-20T11:30:00.000Z"
+    },
+    {
+      "id": "t-104",
+      "userId": "u-2",
+      "title": "Prepare concise technical summary and architecture trade-offs for the upcoming design review",
+      "completed": false,
+      "order": 3,
+      "createdAt": "2026-11-20T12:40:00.000Z"
+    },
+    {
+      "id": "t-105",
+      "userId": "u-2",
+      "title": "Send contract to design partner",
+      "completed": true,
+      "order": 4,
+      "createdAt": "2026-11-19T14:20:00.000Z"
+    },
+    {
+      "id": "t-106",
+      "userId": "u-2",
+      "title": "Order new monitor desk mount",
+      "completed": true,
+      "order": 5,
+      "createdAt": "2026-11-19T16:45:00.000Z"
+    }
+  ]
+}
