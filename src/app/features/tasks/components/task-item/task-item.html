@@ -1,0 +1,52 @@
+<div
+  (click)="onRowClick()"
+  class="group flex items-center justify-between px-space-lg py-4 transition-colors hover:bg-surface-container-low cursor-pointer"
+>
+  <div class="flex items-center gap-space-md flex-1 min-w-0 pr-space-md">
+    <ng-content select="[dragHandle]" />
+
+    <button
+      type="button"
+      role="checkbox"
+      [attr.aria-checked]="task().completed"
+      [attr.aria-label]="
+        task().completed
+          ? 'Mark ' + task().title + ' as active'
+          : 'Mark ' + task().title + ' as completed'
+      "
+      (click)="onToggleClick($event)"
+      class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all"
+      [class.bg-primary]="task().completed"
+      [class.text-on-primary]="task().completed"
+      [class.bg-surface-container-high]="!task().completed"
+      [class.hover:bg-neutral-300]="!task().completed"
+    >
+      <span
+        class="material-symbols-outlined text-[14px]"
+        [class.text-transparent]="!task().completed"
+        aria-hidden="true"
+      >
+        check
+      </span>
+    </button>
+
+    <span
+      class="text-body-lg truncate select-none"
+      [class.text-on-surface]="!task().completed"
+      [class.text-outline]="task().completed"
+      [class.line-through]="task().completed"
+      [attr.title]="task().title"
+    >
+      {{ task().title }}
+    </span>
+  </div>
+
+  <button
+    type="button"
+    [attr.aria-label]="'Delete ' + task().title"
+    (click)="onRemoveClick()"
+    class="opacity-60 group-hover:opacity-100 focus:opacity-100 p-1 text-outline hover:text-error transition-all rounded shrink-0 flex items-center justify-center"
+  >
+    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">delete</span>
+  </button>
+</div>

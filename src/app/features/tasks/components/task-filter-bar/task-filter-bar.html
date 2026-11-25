@@ -1,0 +1,72 @@
+<section class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
+  <div class="flex items-center gap-space-xs" role="tablist" aria-label="Filter tasks">
+    <button
+      type="button"
+      role="tab"
+      [attr.aria-selected]="activeFilter() === 'all'"
+      (click)="filterChange.emit('all')"
+      class="px-space-md py-1 rounded-full text-label-md transition-all"
+      [class.bg-primary]="activeFilter() === 'all'"
+      [class.text-on-primary]="activeFilter() === 'all'"
+      [class.text-on-surface-variant]="activeFilter() !== 'all'"
+      [class.hover:text-primary]="activeFilter() !== 'all'"
+    >
+      All <span class="opacity-70 ml-0.5">{{ totalCount() }}</span>
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      [attr.aria-selected]="activeFilter() === 'active'"
+      (click)="filterChange.emit('active')"
+      class="px-space-md py-1 rounded-full text-label-md transition-all"
+      [class.bg-primary]="activeFilter() === 'active'"
+      [class.text-on-primary]="activeFilter() === 'active'"
+      [class.text-on-surface-variant]="activeFilter() !== 'active'"
+      [class.hover:text-primary]="activeFilter() !== 'active'"
+    >
+      Active <span class="opacity-70 ml-0.5">{{ activeCount() }}</span>
+    </button>
+
+    <button
+      type="button"
+      role="tab"
+      [attr.aria-selected]="activeFilter() === 'completed'"
+      (click)="filterChange.emit('active')"
+      class="px-space-md py-1 rounded-full text-label-md transition-all"
+      [class.bg-primary]="activeFilter() === 'completed'"
+      [class.text-on-primary]="activeFilter() === 'completed'"
+      [class.text-on-surface-variant]="activeFilter() !== 'completed'"
+      [class.hover:text-primary]="activeFilter() !== 'completed'"
+    >
+      Completed <span class="opacity-70 ml-0.5">{{ completedCount() }}</span>
+    </button>
+  </div>
+
+  <div class="relative w-full sm:w-48">
+    <span
+      class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none"
+      aria-hidden="true"
+    >
+      {{ isSearching() ? 'hourglass_empty' : 'search' }}
+    </span>
+    <input
+      type="text"
+      aria-label="Search tasks"
+      placeholder="Search..."
+      [value]="searchQuery()"
+      (input)="onSearchInput($event)"
+      class="w-full bg-surface-container-low text-body-sm text-on-surface placeholder:text-outline pl-8 pr-7 py-1.5 rounded-full outline-none focus:bg-surface-container-high transition-colors"
+    />
+    @if (searchQuery().length > 0) {
+      <button
+        type="button"
+        (click)="clearSearch()"
+        aria-label="Clear search"
+        class="absolute right-2 top-1/2 -translate-y-1/2 text-outline hover:text-primary flex items-center justify-center"
+      >
+        <span class="material-symbols-outlined text-[15px]">close</span>
+      </button>
+    }
+  </div>
+</section>
