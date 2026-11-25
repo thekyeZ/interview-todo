@@ -1,28 +1,162 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  /* Radical Clarity Color Tokens */
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1b1b1e;
+  --color-on-primary-container: #858387;
+  --color-primary-fixed: #e4e1e6;
+  --color-primary-fixed-dim: #c8c5ca;
+  --color-on-primary-fixed: #1b1b1e;
+  --color-on-primary-fixed-variant: #47464a;
+  --color-inverse-primary: #c8c5ca;
+
+  --color-secondary: #5d5e66;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e3e1ec;
+  --color-on-secondary-container: #63646c;
+  --color-secondary-fixed: #e3e1ec;
+  --color-secondary-fixed-dim: #c6c5cf;
+  --color-on-secondary-fixed: #1a1b22;
+  --color-on-secondary-fixed-variant: #46464e;
+
+  --color-tertiary: #000000;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #1d1b16;
+  --color-on-tertiary-container: #88837c;
+  --color-tertiary-fixed: #e8e2d9;
+  --color-tertiary-fixed-dim: #cbc6bd;
+  --color-on-tertiary-fixed: #1d1b16;
+  --color-on-tertiary-fixed-variant: #494640;
+
+  --color-background: #f8f9fa;
+  --color-on-background: #191c1d;
+  --color-surface: #f8f9fa;
+  --color-surface-bright: #f8f9fa;
+  --color-surface-dim: #d9dadb;
+  --color-surface-variant: #e1e3e4;
+  --color-surface-tint: #5f5e61;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #47464b;
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+
+  --color-outline: #77767b;
+  --color-outline-variant: #c8c5cb;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Spacing Scale */
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin: 3rem;
+  --spacing-margin-mobile: 1.25rem;
+
+  /* Typography */
+  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --text-display: 2.5rem;
+  --text-display--line-height: 3rem;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 600;
+
+  --text-headline-lg: 1.75rem;
+  --text-headline-lg--line-height: 2.25rem;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 1.25rem;
+  --text-headline-md--line-height: 1.75rem;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 500;
+
+  --text-headline-sm: 1rem;
+  --text-headline-sm--line-height: 1.5rem;
+  --text-headline-sm--letter-spacing: -0.005em;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.625rem;
+  --text-body-lg--letter-spacing: 0em;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 0.875rem;
+  --text-body-md--line-height: 1.375rem;
+  --text-body-md--letter-spacing: 0em;
+  --text-body-md--font-weight: 400;
+
+  --text-body-sm: 0.75rem;
+  --text-body-sm--line-height: 1.125rem;
+  --text-body-sm--letter-spacing: 0.01em;
+  --text-body-sm--font-weight: 400;
+
+  --text-label-md: 0.8125rem;
+  --text-label-md--line-height: 1rem;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 500;
+
+  --text-label-sm: 0.6875rem;
+  --text-label-sm--line-height: 0.875rem;
+  --text-label-sm--letter-spacing: 0.05em;
+  --text-label-sm--font-weight: 600;
+}
 
 @layer base {
+  html,
   body {
-    @apply bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    overscroll-behavior: none;
+  }
+
+  button:not(:disabled),
+  a[href] {
+    cursor: pointer;
   }
 }
 
-/* Custom subtle scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+  vertical-align: middle;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/* CDK Drag & Drop — Radical Clarity planar styling */
+.cdk-drag-preview {
+  background-color: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  list-style: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 9999px;
+.cdk-drag-placeholder {
+  opacity: 0.35;
+  background-color: var(--color-surface-container-low);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+.cdk-drag-animating {
+  transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.task-drop-list.cdk-drop-list-dragging .task-row-draggable:not(.cdk-drag-placeholder) {
+  transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
 }

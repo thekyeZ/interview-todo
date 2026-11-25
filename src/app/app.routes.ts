@@ -2,35 +2,19 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'tasks',
+    path: 'login',
+    loadComponent: () => import('./features/login/login').then((m) => m.Login),
+    title: 'Sign in — Tasks.',
   },
   {
     path: 'tasks',
-    loadChildren: () =>
-      import('./features/tasks/tasks.routes').then((m) => m.TASKS_ROUTES),
+    loadComponent: () => import('./features/tasks/tasks').then((m) => m.Tasks),
+    title: 'Todo. — Minimal Tasks',
   },
   {
-    path: 'calendar',
-    loadChildren: () =>
-      import('./features/calendar/calendar.routes').then(
-        (m) => m.CALENDAR_ROUTES
-      ),
-  },
-  {
-    path: 'analytics',
-    loadChildren: () =>
-      import('./features/analytics/analytics.routes').then(
-        (m) => m.ANALYTICS_ROUTES
-      ),
-  },
-  {
-    path: 'activity-log',
-    loadChildren: () =>
-      import('./features/activity-log/activity-log.routes').then(
-        (m) => m.ACTIVITY_LOG_ROUTES
-      ),
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'tasks',
   },
   {
     path: '**',

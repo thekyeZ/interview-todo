@@ -1,0 +1,32 @@
+<header class="fixed top-0 left-0 w-full z-40 bg-surface-container-lowest">
+  <div class="h-16 max-w-3xl mx-auto px-gutter flex items-center justify-between gap-gutter">
+    <div class="flex items-center gap-space-lg flex-1">
+      <a
+        routerLink="/tasks"
+        class="text-headline-sm text-primary tracking-tight select-none"
+      >
+        Todo.
+      </a>
+    </div>
+
+    <div class="flex items-center gap-space-md shrink-0">
+      <span class="hidden md:inline text-body-sm text-on-surface-variant">
+        {{ userEmail() }}
+      </span>
+      <button
+        type="button"
+        (click)="logout.emit()"
+        class="text-label-md text-on-surface-variant hover:text-primary transition-colors"
+      >
+        Log out
+      </button>
+      <div
+        class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"
+        [attr.title]="userEmail()"
+        aria-hidden="true"
+      >
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+    </div>
+  </div>
+</header>

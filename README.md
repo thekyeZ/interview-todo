@@ -1,38 +1,42 @@
-# Interview Todo (TaskFlow) — Angular Recruitment Platform
+# Todo. — Minimalist Angular Application
 
-Aplikacja typu **Rozbudowany Todo & Productivity Manager** zbudowana w najnowszym Angularze (`v19`), służąca do przeprowadzania technicznych rozmów rekrutacyjnych (Live Coding, Code Review, Debugging, Architecture Discussion).
+Minimalistyczna aplikacja typu **Todo** zbudowana w **Angularze v22** z lokalnym serwerem mock API (`json-server`).
 
 ## Stack Technologiczny
 
-* **Frontend:** Angular 19 (Standalone Components, Signals, `computed()`, `effect()`, `input()`, `output()`, nowy Control Flow `@if` / `@for`, `ChangeDetectionStrategy.OnPush`, `withComponentInputBinding()`).
-* **Zarządzanie stanem:** `@ngrx/signals` (`SignalStore` z `withState`, `withComputed`, `withMethods`, `rxMethod`, `patchState`) + `@ngrx/operators` (`tapResponse`).
-* **Asynchroniczność i formularze:** RxJS (`switchMap`, `debounceTime`, `distinctUntilChanged`, `forkJoin`, `retry`, `catchError`, `takeUntilDestroyed`) + `ReactiveFormsModule` (`FormArray`, walidatory synchroniczne i asynchroniczne).
-* **Stylowanie:** Tailwind CSS + własne komponenty UI (`shared/ui/`).
-* **Mock Backend:** `json-server` (`v0.17.4`) z symulacją opóźnienia sieciowego (`400ms`), obsługą pełnotekstowego wyszukiwania `?q=` oraz dedykowanym middlewarem (`server/middleware.cjs`).
+* **Frontend:** Angular 22 (Zoneless, Standalone Components, `ChangeDetectionStrategy.OnPush`, Signals, `computed()`, `input()`, `output()`, nowy Control Flow `@if` / `@for`, Signal Forms `@angular/forms/signals`, `@Service()`, `inject()`).
+* **Asynchroniczność i HTTP:** RxJS + `HttpClient` z funkcjonalnymi interceptorami (`authHeaderInterceptor`, `httpErrorInterceptor`) i proxy `/api` → `http://localhost:3000`.
+* **Stylowanie i interakcje:** Tailwind CSS v4 + `@angular/cdk/drag-drop`.
+* **Testy:** Vitest (`@angular/build:unit-test`) z `jsdom`.
+* **Mock Backend:** `json-server` (`v0.17.4`) na pliku `db.json` (port `3000`, opóźnienie sieciowe `400ms`, pełnotekstowe wyszukiwanie `?q=`).
 
 ## Szybki Start
 
-### 1. Uruchomienie aplikacji oraz Mock API jednocześnie
+### 1. Instalacja zależności
+```bash
+npm install
+```
+
+### 2. Uruchomienie aplikacji oraz Mock API jednocześnie
 ```bash
 npm start
 ```
-* Aplikacja Angular uruchomi się pod adresem: `http://localhost:4200`
-* Serwer `json-server` uruchomi się pod adresem: `http://localhost:3000` (z opóźnieniem `400ms`)
+* Aplikacja Angular: `http://localhost:4200` (zapytania `/api/*` przekierowywane są przez `proxy.conf.json` do `json-server`)
+* Mock API (`json-server`): `http://localhost:3000`
 
-### 2. Reset bazy danych po rozmowie z kandydatem
-Aby przywrócić plik `db.json` do czystego stanu początkowego z pliku `db.seed.json`:
+### 3. Reset bazy danych
+Przywrócenie pliku `db.json` do stanu początkowego z `db.seed.json`:
 ```bash
 npm run db:reset
 ```
 
-### 3. Budowanie produkcyjne
+### 4. Budowanie i testy
 ```bash
 npm run build
+npm test
 ```
 
-## Główne Moduły Biznesowe
+## Zakres Funkcjonalny
 
-1. **Tablica Zadań (`/tasks`)** – wielokryterialne filtrowanie, wyszukiwarka live (`rxMethod`), odhaczanie podzadań na karcie, operacje masowe (`forkJoin`) oraz edytor zadań (`/tasks/new`, `/tasks/:id/edit`) z `FormArray`, walidatorem asynchronicznym i ochroną `canDeactivate`.
-2. **Kalendarz i Terminy (`/calendar`)** – oś czasu zadań, radar zaległości oraz kontrola dziennego obciążenia godzinowego względem limitu użytkownika (`dailyCapacityHours`).
-3. **Statystyki Produktywności (`/analytics`)** – karty KPI, bilans godzin estymowanych vs zaraportowanych, rozkład kategorii oraz mapa obciążenia członków zespołu.
-4. **Historia Zmian (`/activity-log`)** – dziennik audytowy wszystkich operacji z filtrowaniem oraz opcjonalnym auto-odświeżaniem (`interval` + `takeUntilDestroyed`).
+1. **Ekran powitalny (`/login`)** — szybkie wejście do workspace'u (*Standard* lub *Demo Access*) bez konieczności podawania hasła.
+2. **Lista zadań (`/tasks`)** — dodawanie zadań (`Enter` / `Add`), przełączanie statusu ukończenia, filtrowanie (*All / Active / Completed*) z licznikami, wyszukiwarka inline przez API (`?q=`), zmiana kolejności metodą drag & drop, usuwanie pojedynczych zadań, masowe czyszczenie ukończonych (*Clear completed*) oraz baner cofania (*Undo*).

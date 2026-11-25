@@ -1,51 +1,19 @@
-export type TaskStatus = 'todo' | 'in_progress' | 'review' | 'done';
-export type TaskPriority = 'low' | 'medium' | 'high' | 'critical';
-
-export interface Subtask {
-  id: string;
-  title: string;
-  completed: boolean;
-}
-
 export interface Task {
-  id: string;
-  title: string;
-  description: string;
-  categoryId: string;
-  assigneeId: string | null;
-  reporterId: string;
-  status: TaskStatus;
-  priority: TaskPriority;
-  tags: string[];
-  estimateHours: number;
-  loggedHours: number;
-  dueDate: string | null;
-  createdAt: string;
-  updatedAt: string;
-  subtasks: Subtask[];
+  readonly id: string;
+  readonly userId: string;
+  readonly title: string;
+  readonly completed: boolean;
+  readonly order: number;
+  readonly createdAt: string;
 }
 
-export interface TaskFilter {
-  query: string;
-  categoryId: string | 'all';
-  status: TaskStatus | 'all';
-  priority: TaskPriority | 'all';
-  tag: string | 'all';
-  onlyMyTasks: boolean;
-  sortBy: 'dueDate' | 'priority' | 'updatedAt' | 'estimateHours';
-}
+export type TaskFilter = 'all' | 'active' | 'completed';
 
-export interface TaskUpsertPayload {
-  title: string;
-  description: string;
-  categoryId: string;
-  assigneeId: string | null;
-  reporterId: string;
-  status: TaskStatus;
-  priority: TaskPriority;
-  tags: string[];
-  estimateHours: number;
-  loggedHours: number;
-  dueDate: string | null;
-  subtasks: Subtask[];
+export type CreateTaskPayload = Omit<Task, 'id'>;
+
+export type UpdateTaskPayload = Partial<Pick<Task, 'title' | 'completed' | 'order'>>;
+
+export interface UndoToastState {
+  readonly message: string;
+  readonly deletedTasks: readonly Task[];
 }

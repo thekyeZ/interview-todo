@@ -1,0 +1,26 @@
+@if (toast(); as currentToast) {
+  <div
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-primary text-on-primary px-space-md py-2.5 rounded-lg shadow-sm flex items-center gap-space-md text-body-sm transition-all duration-200 select-none max-w-[calc(100vw-2rem)]"
+  >
+    <span class="truncate max-w-xs sm:max-w-sm">{{ currentToast.message }}</span>
+    <div class="flex items-center gap-space-sm shrink-0">
+      <button
+        type="button"
+        (click)="undo.emit()"
+        class="text-label-md text-on-primary font-bold hover:underline px-1.5 py-0.5 rounded"
+      >
+        Undo
+      </button>
+      <button
+        type="button"
+        (click)="dismiss.emit()"
+        aria-label="Dismiss"
+        class="text-outline-variant hover:text-on-primary p-0.5 rounded transition-colors flex items-center justify-center"
+      >
+        <span class="material-symbols-outlined text-[16px]" aria-hidden="true">close</span>
+      </button>
+    </div>
+  </div>
+}

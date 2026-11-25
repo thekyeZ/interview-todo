@@ -1,13 +1,16 @@
-export type UserRole = 'admin' | 'developer' | 'designer';
-
 export interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: UserRole;
-  title: string;
-  avatar: string;
-  avatarColor: string;
-  dailyCapacityHours: number;
-  department: string;
+  readonly id: string;
+  readonly email: string;
+  readonly password: string;
+  readonly name: string;
+  readonly isDemo?: boolean;
 }
+
+export type AuthUser = Omit<User, 'password'>;
+
+export interface AuthCredentials {
+  readonly email: string;
+  readonly password: string;
+}
+
+export type CreateUserPayload = Omit<User, 'id'>;

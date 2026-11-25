@@ -1,0 +1,139 @@
+<div class="min-h-screen flex flex-col bg-surface-container-lowest text-on-surface">
+  <app-tasks-header [userEmail]="userEmail()" (logout)="onLogout()" />
+
+  <main class="w-full pt-16 flex-1 bg-surface-container-lowest">
+    <div class="max-w-3xl mx-auto px-gutter py-space-xl">
+      <div class="flex flex-col w-full max-w-2xl mx-auto">
+        <app-task-input
+          [isCreating]="tasksStore.isCreating()"
+          (addTask)="tasksStore.addTask($event)"
+        />
+
+        <app-task-filter-bar
+          [activeFilter]="tasksStore.filter()"
+          [searchQuery]="tasksStore.searchQuery()"
+          [totalCount]="tasksStore.totalCount()"
+          [activeCount]="tasksStore.activeCount()"
+          [completedCount]="tasksStore.completedCount()"
+          [isSearching]="tasksStore.isSearching()"
+          (filterChange)="tasksStore.setFilter($event)"
+          (searchChange)="tasksStore.setSearchQuery($event)"
+        />
+
+        @if (tasksStore.error(); as errorMessage) {
+          <div
+            role="alert"
+            class="mb-space-md px-space-md py-space-sm rounded-lg bg-error-container text-on-error-container text-body-sm flex items-center justify-between gap-space-md"
+          >
+            <span>{{ errorMessage }}</span>
+            <button
+              type="button"
+              (click)="tasksStore.loadTasks()"
+              class="text-label-md underline underline-offset-2 shrink-0"
+            >
+              Retry
+            </button>
+          </div>
+        }
+
+        <section
+          class="bg-surface-container-lowest rounded-lg shadow-sm border border-surface-container-low overflow-hidden flex flex-col"
+          aria-label="Task list"
+        >
+          @if (tasksStore.isLoading()) {
+            <div class="flex flex-col divide-y divide-surface-container-low" aria-busy="true">
+              @for (item of [1, 2, 3]; track item) {
+                <div class="flex items-center gap-space-md px-space-lg py-4 animate-pulse">
+                  <div class="w-4 h-4 rounded bg-surface-container-low"></div>
+                  <div class="w-5 h-5 rounded-full bg-surface-container-high"></div>
+                  <div class="h-4 flex-1 max-w-xs rounded bg-surface-container-low"></div>
+                </div>
+              }
+            </div>
+          } @else {
+            <div
+              cdkDropList
+              [cdkDropListData]="tasksStore.visibleTasks()"
+              [cdkDropListDisabled]="!tasksStore.canReorder()"
+              (cdkDropListDropped)="onDrop($event)"
+              class="task-drop-list flex flex-col"
+            >
+              @for (task of tasksStore.visibleTasks(); track task.id) {
+                <div
+                  cdkDrag
+                  [cdkDragDisabled]="!tasksStore.canReorder()"
+                  class="task-row-draggable"
+                >
+                  <app-task-item
+                    [task]="task"
+                    (toggle)="tasksStore.toggleTask($event)"
+                    (remove)="tasksStore.deleteTask($event)"
+                  >
+                    <span
+                      dragHandle
+                      cdkDragHandle
+                      (click)="stopEvent($event)"
+                      [attr.title]="
+                        tasksStore.canReorder()
+                          ? 'Drag to reorder'
+                          : 'Switch to All without search to reorder'
+                      "
+                      class="material-symbols-outlined text-[18px] text-outline transition-colors select-none shrink-0"
+                      [class.opacity-60]="tasksStore.canReorder()"
+                      [class.hover:text-on-surface]="tasksStore.canReorder()"
+                      [class.hover:opacity-100]="tasksStore.canReorder()"
+                      [class.cursor-grab]="tasksStore.canReorder()"
+                      [class.active:cursor-grabbing]="tasksStore.canReorder()"
+                      [class.opacity-25]="!tasksStore.canReorder()"
+                      [class.cursor-default]="!tasksStore.canReorder()"
+                      aria-hidden="true"
+                    >
+                      drag_indicator
+                    </span>
+                  </app-task-item>
+                </div>
+              } @empty {
+                <div class="flex flex-col items-center justify-center py-space-xl px-space-lg text-center">
+                  <span
+                    class="material-symbols-outlined text-outline-variant text-[32px] mb-space-xs"
+                    aria-hidden="true"
+                  >
+                    check
+                  </span>
+                  <p class="text-body-md text-outline">No tasks found</p>
+                </div>
+              }
+            </div>
+          }
+
+          <div
+            class="flex items-center justify-between px-space-lg py-space-md bg-surface-container-low text-on-surface-variant select-none"
+          >
+            <span class="text-label-sm tracking-wider uppercase">{{ remainingLabel() }}</span>
+            <button
+              type="button"
+              [disabled]="tasksStore.completedCount() === 0"
+              (click)="tasksStore.clearCompleted()"
+              class="text-label-sm uppercase tracking-wider text-outline hover:text-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:text-outline"
+            >
+              Clear completed
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="w-full bg-surface-container-lowest py-space-lg">
+    <div class="max-w-3xl mx-auto px-gutter flex items-center justify-between text-on-surface-variant">
+      <span class="text-body-sm">© Todo Inc. Mindful productivity.</span>
+      <span class="text-label-sm uppercase tracking-wider">Focus Mode Active</span>
+    </div>
+  </footer>
+
+  <app-undo-toast
+    [toast]="tasksStore.undoToast()"
+    (undo)="onUndo()"
+    (dismiss)="tasksStore.dismissUndoToast()"
+  />
+</div>
